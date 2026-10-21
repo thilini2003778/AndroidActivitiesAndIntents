@@ -24,5 +24,25 @@ A simple Android application created to practice Activity lifecycles, Button cli
 
 ### 1. Linking the Button (`findViewById`)
 The button defined in the XML layout (`activity_main.xml`) is referenced in Java:
-```java
+
 Button btnSecondActivity = findViewById(R.id.btnSecondActivity);
+
+### 2. Handling the Click Event (`setOnClickListener`)
+An `OnClickListener` detects when the user presses the button and triggers the transition:
+
+btnSecondActivity.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        startActivity(intent);
+    }
+});
+
+### 3. Explicit Intent & Navigation
+An Explicit Intent specifies the exact destination component (`SecondActivity.class`). Calling `startActivity(intent)` tells the Android OS to launch `SecondActivity` and push it onto the Activity back stack.
+
+## 🚀 How to Run
+1. Clone or download this repository.
+2. Open the project folder in **Android Studio**.
+3. Allow Gradle to sync dependencies.
+4. Run on an Android emulator or physical device (`Shift + F10`).
